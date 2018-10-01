@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.o {
+	color: black;
+}
+
+.grid {
+	width:1600px;
+	height: 830px;
+	background-color: #fff;
+	padding: 10px,50px,50px,50px;
+	border-radius: 50px;
+	border: 2px solid #cbcbcb;
+	box-shadow: 10px 15px 5px #cbcbcb;
+}
+
+.grid h1 {
+	font-family: sans-serif;
+	background-color: #57636e;
+	font-size: 60px;
+	text-align: center;
+	color: #fff;
+	padding: 2px 0px;
+	border-radius: 50px;
+}
+
+</style>
+	<title></title>
+</head>
+<body bgcolor="#E6E6FA">
+	<div class="grid">
+<blockquote>
+	<h3>Answers: </h3>
+	<div id ="ANS"></div>
+</blockquote>
+<script>
+		var pre_index = new Array();
+		function myFunction(name) {
+		    var index
+		    var ans_lst = document.getElementsByName(name);
+		    for(var i = 0; i < ans_lst.length; i++){
+		    	if(ans_lst[i].checked == true)
+		    		index = i;
+		    }
+		    
+		    if(ans_lst[index].value == 'Y'){
+		    	alert("Well done, you get a right answer!");
+		    
+		    }
+		    else{
+		    	alert("Sorry, it is not correct, please try again.");
+		    }
+		    var selection = "";
+		   	switch(index){
+		   	case 0: selection = 'A';break;
+		   	case 1: selection = 'B';break;
+		   	case 2: selection = 'C';break;
+		   	case 3: selection = 'D';break;
+		    }
+		    var blockshow = document.getElementById("ANS");
+		    var newChild = document.createElement("li");
+		    var textNode = document.createTextNode(selection);
+		    newChild.appendChild(textNode);
+		    for(var i = 0; i < pre_index.length; i++){
+		    	if(pre_index[i] == name){
+		    		blockshow.childNodes[i].innerText = selection;
+		    		break;
+		    	}
+		    	if(i == pre_index.length - 1){
+		    		blockshow.appendChild(newChild);
+		    		pre_index.push(name);
+		    	}
+			}
+		    if(pre_index.length == 0){
+		    	blockshow.appendChild(newChild);
+		    	pre_index.push(name);
+		    }
+		}
+		</script>
+
+<center><h1>Sample Quiz</h1></center>                
+<h3 class = "o">What is the next number in this sequence?
+
+78, 83, 88, ___</h3>
+
+	<input type="radio" id="r" name="Radio" value="Y" onclick="myFunction('Radio')">A 93<br>
+	<input type="radio" id="r" name="Radio" value="N" onclick="myFunction('Radio')">B 87<br>
+	<input type="radio" name="Radio" value="N" onclick="myFunction('Radio')">C 94<br>
+	<input type="radio" name="Radio" value="N" onclick="myFunction('Radio')">D 96<br>
+
+
+<h3 class = "o">If Jasmine started with 81 dollars, and then saved 3 dollars every day for 5 days, how many dollars did she end up with?</h3>
+	<input type="radio" name="Radio1" value="N" onclick="myFunction('Radio1')">A 95<br>
+	<input type="radio" name="Radio1" value="Y" onclick="myFunction('Radio1')">B 96<br>
+	<input type="radio" name="Radio1" value="N" onclick="myFunction('Radio1')">C 97<br>
+	<input type="radio" name="Radio1" value="N" onclick="myFunction('Radio1')">D 99<br>
+
+<h3 class = "o">Joelene started with 39 ribbons and added 4 more every week until she had 55 altogether. 
+How many weeks did that take?</h3>
+<input type="radio" name="Radio2" value="Y" onclick="myFunction('Radio2')">A 4 weeks<br>
+<input type="radio" name="Radio2" value="N" onclick="myFunction('Radio2')">B 5 weeks<br>
+<input type="radio" name="Radio2" value="N" onclick="myFunction('Radio2')">C 6 weeks<br>
+<input type="radio" name="Radio2" value="N" onclick="myFunction('Radio2')">D 7 weeeks<br>
+
+<h3 class = "o">If you had 34 blueberriess, a friend gave you 4 more, then another friend gave you 4 more, then another friend gave you 4 more, how many blueberries would you have altogether?</h3>
+<input type="radio" name="Radio3" value="N" onclick="myFunction('Radio3')">A 40<br>
+<input type="radio" name="Radio3" value="N" onclick="myFunction('Radio3')">B 42<br>
+<input type="radio" name="Radio3" value="N" onclick="myFunction('Radio3')">C 44<br>
+<input type="radio" name="Radio3" value="Y" onclick="myFunction('Radio3')">D 46<br>
+</div>
+
+</body>
+</html>
