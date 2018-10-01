@@ -17,7 +17,11 @@ html,body{
 	position: relative;
 	overflow-y: auto;
 }
-
+.smart a{
+	font-size: 28px;
+	color: #ffff99;
+	font-family: Bookman;
+}
 
 .page-header h1{
 	font-size: 70px;
